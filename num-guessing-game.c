@@ -36,17 +36,19 @@ int main() {
         printf("No. of guesses: %d\n", guesses);
         printf("********************\n");
 
-        printf("Play again? (Y/N)");
-        scanf("%c", again);
-        getchar();
-        again = toupper(again);
+        do{
+            printf("Play again? (Y/N): \n");
+            scanf("%c", &again);
+            getchar();
+            again = toupper(again);
+            if(again != 'Y' && again != 'N'){
+                printf("Invalid answer! (%c)\n", again);
+            }
+        } while(again != 'Y' && again != 'N');
 
-        if(again != "Y" || again != "N") {
-            printf("Thank you for playing!");
-            printf("Invalid answer!");
-        }
+    } while (again == 'Y');
 
-    } while (again == "Y");
+    printf("Thank you for playing!");
 
     return 0;
 }
